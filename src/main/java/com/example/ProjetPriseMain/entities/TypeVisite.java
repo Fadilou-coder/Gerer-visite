@@ -3,6 +3,7 @@ package com.example.ProjetPriseMain.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ public class TypeVisite {
     private Long id;
 
     @Column(unique = true)
+    @NotNull
     private String libelle;
 
 

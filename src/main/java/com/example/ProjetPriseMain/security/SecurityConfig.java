@@ -42,7 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and();
         http.authorizeRequests().antMatchers("/h2-console/**/", "/login/**/", "/swagger-ui.html/**", "/v3/api-doc/**", "/swagger-ui/**").permitAll(); // authoriser ces requettes sans authentification
-        http.authorizeRequests().anyRequest().authenticated(); //toutes les requettes nécéssite une authentification
+        http
+                .authorizeRequests()
+                .antMatchers("/**").access("hasAuthority('ADMIN')")
+                .anyRequest().fullyAuthenticated(); //toutes les requettes nécéssite une authentification
         http.addFilter(new JwtAuthFilter(authenticationManagerBean())); // filtre d'authentification
         http.addFilterBefore(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

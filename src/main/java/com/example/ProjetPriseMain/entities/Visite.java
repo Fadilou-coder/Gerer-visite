@@ -1,8 +1,10 @@
 package com.example.ProjetPriseMain.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +16,9 @@ public class Visite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonFormat(pattern="dd-MM-yyyy hh:MM")
     private Date dateEntree = new Date();
+    @JsonFormat(pattern="dd-MM-yyyy hh:MM")
     private Date dateSortie;
 
     private String comments;

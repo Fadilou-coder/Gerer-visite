@@ -31,6 +31,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods", "GET, OPTIONS, POST, PUT");
         response.addHeader("Access-Control-Allow-Headers",
                 "Origin, Accept, X-Requested-With, Content-Type, " +
                         "Access-Control-Request-Method, " +

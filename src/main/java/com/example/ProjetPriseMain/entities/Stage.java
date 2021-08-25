@@ -3,6 +3,7 @@ package com.example.ProjetPriseMain.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Stage {
     private Long id;
 
     @Column(unique = true)
+    @NotNull
     private String libelle;
 
     @ManyToMany(cascade = CascadeType.ALL)

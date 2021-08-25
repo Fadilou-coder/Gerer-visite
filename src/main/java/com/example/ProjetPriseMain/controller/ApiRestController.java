@@ -39,8 +39,17 @@ public class ApiRestController {
     private FormationRepository formationRepository;
 
 
-    @GetMapping("/employes")
+    @GetMapping("/employe")
     public List<Employe> employe(){ return employeRepository.findAll(); }
+
+    @GetMapping("/visiteurs")
+    public Page<Visiteur> visiteurs(
+            @RequestParam Optional<Integer> page,
+            @RequestParam Optional<String> sortBy){ return visiteurRepository.findAll(PageRequest.of(
+            page.orElse(0),
+            15,
+            Sort.Direction.ASC, sortBy.orElse("id")
+    )); }
 
     @GetMapping("/stages")
     public List<Stage> stages(){ return stageRepository.findAll(); }
@@ -68,8 +77,8 @@ public class ApiRestController {
             @RequestParam Optional<String> sortBy){
         return visiteRepository.findAll(PageRequest.of(
                 page.orElse(0),
-                2,
-                Sort.Direction.ASC, sortBy.orElse("id")
+                15,
+                Sort.Direction.DESC, sortBy.orElse("id")
         ));
     }
 
@@ -126,6 +135,7 @@ public class ApiRestController {
     public Optional<Visite> sortir(@PathVariable("id") Long id){
         Optional<Visite> v = visiteRepository.findById(id);
         v.get().setDateSortie(new Date());
+        visiteurRepository.flush();
         return v;
     }
 
