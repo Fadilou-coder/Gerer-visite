@@ -14,7 +14,7 @@
 	<name>ProjetPriseMain</name>
 	<description>projet de main pour un stage à la Sonatel</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<kotlin.version>1.5.30-RC</kotlin.version>
 	</properties>
 	<dependencies>
@@ -175,10 +175,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
 				<executions>
 					<execution>
 						<id>compile</id>
