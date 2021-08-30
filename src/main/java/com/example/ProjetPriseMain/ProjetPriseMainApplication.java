@@ -32,7 +32,7 @@ public class ProjetPriseMainApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Calendar c = Calendar.getInstance();
+		/*Calendar c = Calendar.getInstance();
 		Calendar c1 = Calendar.getInstance();
 		c.set(2017, 06, 24);
 		c1.set(2027, 06, 23);
@@ -77,6 +77,8 @@ public class ProjetPriseMainApplication implements CommandLineRunner {
 		service.addVisite(new Visite(), null, "1234577890990", "Formation", "commentaires", null);
 		service.addVisite(new Visite(), null, "1234567890990", "Formation", "commentaires", null);
 		service.addVisite(new Visite(), "employe1@gmail.com", "1234567891980", "Visite Fab Lab", "commentaires", null);
+
+		*/
 
 	}
 
